@@ -17,3 +17,13 @@
 *Рутоваā файловая система монтируется в режиме Read-Only. Если нам  необходимо перемонтировать ее в режим Read-Write можно воспользоваться командой: mount -o remount,rw/ и проверим сразу смонтировалась ли система в режиме Read-Write, используем команду c конвеером mount |grep root
 
 ![1684743536399](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/7ee78009-645a-4619-b00b-fcbd0adc1466)
+ Способ 2. rd.break
+ *Находим строку, которая начинается с с linux16, добавляем в конце строки "rd.break" и нажимаем сtrl-x для загрузки  системы
+ ![1684743609124](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/b674f4f5-d733-427c-a812-e3240f7a035f)
+ *Попадаем в систему
+![1684743630301](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/dc94af0c-37ab-4742-b411-cbc34c2034cf)
+*Попадаем в emergency mode. Файловаā система смонтирована (в режиме Read-Only), но мы не в ней.
+![1684743655886](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/7011de62-2dcb-489e-9a08-258cab96340a)
+
+*Используем команду mount -o remount,rw /sysroot ( монтируем систему в режиме Read-Write),далее используем команду chroot /sysroot (Операция изменения корневого каталога в Unix-подобных операционных системах)
+![1684744259886](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/c88b6e5f-a057-4b2c-ac2f-4fd6e651ce52)
