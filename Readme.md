@@ -36,3 +36,67 @@
 *После чего можно перезагружаться и заходить в систему с новым паролем. Использовать можно ,когда  потеряли или вообще не имели пароль администратора.
 
 *Способ 3. rw init=/sysroot/bin/sh
+В строке начинающейся  с linux16 заменāем ro на rw init=/sysroot/bin/sh и нажимаем сtrl+x для загрузки системы :
+![1684744480656](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/751ccc39-d3ae-4cc9-ad8f-12499e608cc8)
+*Вход в систему :
+![1684744440069](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/e22b6980-b713-4a0e-9918-aab9cc395da9)
+*Система сразу же смонтировалась в режим Read-Write
+![1684744480656](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/1c5438ca-6344-44c8-8d06-d35df9b2b5a6)
+
+4.Установить систему с LVM, после чего переименовать VG
+*Текущее состояние системы:
+![1684744585620](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/33ea5e3e-e929-43bc-8dbb-cb27948bd242)
+*Переименовываем VG
+![1684744627100](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/40dc29ad-ef5f-44f7-be15-5e07d2c7330c)
+Вносим изменения в  /etc/fstab, /etc/default/grub, /boot/grub2/grub.cfg. Везде заменяем старое значение на новое.Для редактирования используем команду vi, что бы сохранить изменения в файле вводим :wq!(что означает записать и выход)
+/etc/fstab:
+
+![1684744776154](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/6709a6af-54f1-4e36-b472-fca5f8fffbce)
+
+![1684744748763](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/210028af-d09f-490f-aa66-75097f99689c)
+
+![1684744818977](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/a581d46e-2cac-466e-8866-e6681832d274)
+
+/etc/default/grub:
+
+![1684744858776](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/b71ecc10-bc30-49ea-9882-1ff10123655d)
+
+![1684744981187](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/c51b0523-3559-4995-ab08-06935970685b)
+
+/boot/grub2/grub.cfg:
+
+![1684745006338](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/ee8ec220-4539-4c1c-952b-78b3291c84e9)
+
+![1684745094021](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/6cf074b7-6752-4093-9f59-23c023d68520)
+
+*Пересоздаем initrd image, чтобы он знал новое название Volume Group
+
+![1684745157658](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/e055c560-00f6-4ed0-8b6a-a128c9a8c121)
+
+![1684745193401](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/deb3cc27-0c1c-40d1-80c0-11bc84719a19)
+*После чего можем перезагружаться и если все сделано правильно успешно грузимся с новым именем Volume Group и проверяем:
+
+![1684745210808](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/7d64619c-9300-4bd4-8deb-9a3afb5092ec)
+*Добавить модуль в initrd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
