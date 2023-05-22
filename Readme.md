@@ -78,19 +78,32 @@
 
 ![1684745210808](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/7d64619c-9300-4bd4-8deb-9a3afb5092ec)
 *Добавить модуль в initrd
+Скрипты модулей хранятся в каталоге /usr/lib/dracut/modules.d/. Добавим свой модуль создав там папку с именем 01test:
+![1684755210384](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/87d29497-18ca-4eb2-b1e0-b738eb89a848)
+*Поместим туда два своих скритпа module-setup.sh test.sh
+module-setup.sh
+
+![1684761917555](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/6bd50efb-79e0-4b29-82dc-81d26035d9f9)
+
+test.sh
+![1684760801323](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/bb07ce1d-4e14-4863-8d1d-4c32fb4f06f0)
+
+*Пересобираем образ initrd:
+
+![1684762055183](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/6d0bbdc1-9a39-484e-b4b8-455f74fbe1e9)
+*Смотрим какие модули загружены в образ:
+![1684762118629](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/c65076a1-07f9-4330-b319-b944e29b45e5)
+ *Отредактируем файл grub2.cfg убрав опции rghb и quiet:
+ 
+ *Изначальный файл
+![1684761070450](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/43795594-417c-4c96-ac86-0727b530c887)
+*После редактирования 
+
+![1684761088058](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/78b39001-4433-4476-9c0b-958e5a8ae83d)
+* После перезагрузки системы мы увидим 
 
 
-
-
-
-
-
-
-
-
-
-
-
+![1684761722367](https://github.com/AlexanderSerg-jun/boot_system/assets/85576634/f90cfeef-3760-4bc3-9c2a-5ddbc1833033)
 
 
 
